@@ -1,0 +1,14 @@
+<main class="teambuilder">
+    <section class="teambuilder__header">
+        <h1 class="teambuilder__title" >Teambuilder</h1>
+        <img src="../../../assets/images/phantump.png" class="teambuilder__image">
+    </section>
+    <section class="teambuilder__cards">
+        <div class="teambuilder__empty-card" (click)="toggleModal()">
+
+        </div>
+    <!--<app-card *ngFor="let pokemon of pokemons"
+                [pokemon]="pokemon"></app-card>-->
+    </section>
+</main>
+<app-team-overlay  [@slider] (click)="isOpen = !isOpen"></app-team-overlay>

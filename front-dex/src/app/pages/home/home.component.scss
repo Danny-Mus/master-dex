@@ -1,0 +1,87 @@
+@import '../../../assets/scss/main.scss';
+
+.toolbar {
+    display: flex;
+    padding: 20px 20px 20px 40px;
+    flex-direction: row;
+
+    &__checkbox {
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+    }
+    &__search {
+        margin: 0 0px 10px 0;
+        height: 20px;
+        background-color: $input-background;
+        border:  none;
+        outline: none;
+        color: $input-text;
+        border-radius: 5px;
+        padding: 5px;
+        font-family: $overpass;
+
+        &:focus {
+            color: $input-text-focus;
+        }
+    }
+
+    &__dropdown {
+        cursor: pointer;
+        width: 100px;
+        height: 30px;
+        outline: none;
+        color: $input-text;
+        background-color:  $input-background;
+        font-family: $overpass;
+        border-radius: 5px;
+        margin-left: 20px;
+
+        &:focus {
+            color: $input-text-focus;
+        }
+
+        &--spacing {
+            width: 150px;
+        }
+    }
+}
+
+.pokemon-list {
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.check {
+    margin: 5px 0 0 20px;
+
+    &__input {
+        cursor: pointer;
+        position: fixed;
+        opacity: 0;
+        height: 20px;
+        width: 20px;
+    }
+
+    &__checkmark {
+        display: flex;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        background-color: $checkbox;
+        border-radius: 10px;
+
+        &:after {
+            content: "";
+        }
+    }
+
+    input:checked ~ .check__checkmark:after {
+        background-image: url("../../../assets/icons/pokeball.svg");
+        width: inherit;
+        height: inherit;
+    }
+}

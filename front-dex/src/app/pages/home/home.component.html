@@ -1,0 +1,34 @@
+<main class="home-container">
+    <section class="toolbar">
+        <input class="toolbar__search" type="text" placeholder="Search Pokémon" [(ngModel)]="searchTerm">
+        <select class="toolbar__dropdown" [(ngModel)]="type">
+            <option selected="selected" hidden>Type</option>
+            <option>All</option>
+            <option *ngFor="let type of types.results">
+                {{ type.name | titlecase }}
+            </option>
+        </select>
+        <select class="toolbar__dropdown toolbar__dropdown--spacing" [(ngModel)]="generation">
+            <option selected="selected" hidden>Generation</option>
+            <option>All</option>
+            <option *ngFor="let generation of generations.results">
+                {{ generation.name | titlecase }}
+            </option>
+        </select>
+        <div class="check">
+            <input class="check__input" type="checkbox" [(ngModel)]="caught"/>
+            <span class="check__checkmark"></span>
+        </div>
+    </section>
+    <div class="pokemon-list" >
+        <app-card *ngFor="let pokemon of pokemons | generationFilter:generation | pokemonFilter:searchTerm | typeFilter:type | caughtFilter:caught"
+            [pokemon]="pokemon"
+            (picked)="closeModel(); openModel($event)">
+        </app-card>
+    </div>
+</main>
+<app-pokemon-details *ngIf="activePokemon"
+                     [pokemon]="activePokemon"
+                     (toggleModel)="closeModel()"
+                     [@slideInOut]>
+</app-pokemon-details>

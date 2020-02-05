@@ -1,0 +1,30 @@
+@import '../../../assets/scss/main.scss';
+
+.check {
+    &__input {
+        cursor: pointer;
+        position: absolute;
+        opacity: 0;
+        height: 20px;
+        width: 20px;
+    }
+
+    &__checkmark {
+        display: flex;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        background-color: $checkbox;
+        border-radius: 10px;
+
+        &:after {
+            content: "";
+        }
+    }
+
+    input:checked ~ .check__checkmark:after {
+        background-image: url("../../../assets/icons/pokeball.svg");
+        width: inherit;
+        height: inherit;
+    }
+}
